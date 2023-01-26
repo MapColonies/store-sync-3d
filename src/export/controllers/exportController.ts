@@ -10,11 +10,7 @@ type CreateResourceHandler = RequestHandler<undefined, IExportResponse, Payload>
 
 @injectable()
 export class ExportController {
-
-  public constructor(
-    @inject(SERVICES.LOGGER) private readonly logger: Logger,
-    @inject(ExportManager) private readonly manager: ExportManager,
-  ) {}
+  public constructor(@inject(SERVICES.LOGGER) private readonly logger: Logger, @inject(ExportManager) private readonly manager: ExportManager) {}
 
   public create: CreateResourceHandler = (req, res, next) => {
     const userInput: Payload = req.body;
